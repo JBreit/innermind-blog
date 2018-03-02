@@ -32,6 +32,7 @@
                     @include('layouts.errors')
                 </div>
             </div>
+            @include('layouts.sidebar')
         </div>
     </div>
 </div>

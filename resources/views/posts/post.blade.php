@@ -22,6 +22,7 @@
                     {{ $post->body }}
                 </div>
             </div>
+            @include('layouts.sidebar')
         </div>
     </div>
 </div>
