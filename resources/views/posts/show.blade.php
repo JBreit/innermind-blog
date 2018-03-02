@@ -18,7 +18,7 @@
                         <ul class="list-group">
                         @foreach ($post->comments as $comment)
                             <li class="list-group-item">
-                                <strong>{{ $comment->created_at->diffForHumans() }}</strong>: &nbsp;
+                                {{ $comment->user->name }} <strong>{{ $comment->created_at->diffForHumans() }}</strong>: &nbsp;
                                 {{ $comment->body }}
                             </li>
                         @endforeach
@@ -30,7 +30,7 @@
                             <form method="POST" action="/posts/{{ $post->id }}/comments">
                                 @csrf
                                 <div class="form-group">
-                                    <textarea class="form-control" name="body" placeholder="Leave a comment."></textarea>
+                                    <textarea class="form-control" name="body" placeholder="Leave a comment." required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Add Comment</button>

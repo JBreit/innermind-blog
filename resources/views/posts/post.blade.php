@@ -9,6 +9,7 @@
                     <h2>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
+                    <span>{{ $post->user->name }}</span>
                     <p>{{ $post->created_at->toFormattedDateString() }}</p>
                     </div>
 
