@@ -163,7 +163,6 @@ return [
         /*
          * Innermind Service Providers...
          */
-        Innermind\Post\Providers\RouteServiceProvider::class,
 
     ],
 
