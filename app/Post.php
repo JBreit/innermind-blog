@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Innermind\User\Entities\User;
 use Carbon\Carbon;
 
 class Post extends Model
