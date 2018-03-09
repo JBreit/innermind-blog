@@ -7,6 +7,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
     'jquery',
     'bootstrap',
     'axios',
-    'vue'
+    'vue',
   ])
   .sass('resources/assets/sass/app.scss', 'public/css');

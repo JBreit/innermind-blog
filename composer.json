@@ -24,8 +24,12 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
-        }
+            "App\\": "app/",
+            "Innermind\\": "Innermind/"
+        },
+        "files": [
+            "Innermind/Support/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

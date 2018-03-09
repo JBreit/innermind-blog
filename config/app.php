@@ -160,6 +160,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Innermind Service Providers...
+         */
+        Innermind\Post\Providers\RouteServiceProvider::class,
+
     ],
 
     /*
