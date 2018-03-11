@@ -30,6 +30,25 @@
     </div>
   </div>
 
+    <div class="card my-4">
+    <h4 class="card-header">Tags</h4>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <ol class="list-unstyled mb-0">
+          @foreach ($tags as $tag )
+            <li>
+              <a href="/posts/tags/{{ $tag }}">
+                {{ $tag }}
+              </a>
+            </li>
+            @endforeach
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="card my-4">
     <h4 class="card-header">Elsewhere</h4>
     <div class="card-body">

@@ -14,6 +14,16 @@
 
             {{ $post->body }}
 
+            @if (count($post->tags))
+                <ul>
+                    @foreach ($post->tags as $tag)
+                        <li>
+                            <a href="/posts/tag/{{ $tag->name }}">{{ $tag->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+
             @guest
                 <div class="media my-4 mb-4">
                     @foreach ($post->comments as $comment)

@@ -17,6 +17,12 @@
 
             @include('layouts.partials.navbar')
 
+            @if ($flash = session('message'))
+                <div id="flash-message" class="alert alert-success flash-message" role="alert">
+                    {{ $flash }}  
+                </div>
+            @endif
+
             <main role="main">
 
                 @yield('content')

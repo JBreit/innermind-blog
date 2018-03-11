@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Signin Template for Bootstrap</title>
+        <title>Login | {{ config('app.name', 'Laravel') }}</title>
 
         <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">

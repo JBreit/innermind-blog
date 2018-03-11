@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Signin Template for Bootstrap</title>
+        <title>Registration | {{ config('app.name', 'Laravel') }}</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style type="text/css">

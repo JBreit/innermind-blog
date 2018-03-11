@@ -24,7 +24,9 @@ class SessionsController extends Controller
             ]);
         }
 
-        return redirect('/');
+        session()->flash('message', 'Welcome back!');
+
+        return redirect()->home();
     }
 
     public function destroy()
