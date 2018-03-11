@@ -1,4 +1,4 @@
-              <div class="container">
+              <div class="container-fluid">
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <h3 class="text-white">Inner Mind</h3>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
             <h1 class="mt-4">{{ $post->title }}</h1>
@@ -9,7 +9,7 @@
                 <span class="text-muted">by <a href="#">{{ $post->user->name }}</a> on {{ $post->created_at->toFormattedDateString() }}</span>
             </p>
             <hr>
-            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+            <img class="img-fluid rounded" src="http://placehold.it/918x300" alt="">
             <hr>
 
             {{ $post->body }}
