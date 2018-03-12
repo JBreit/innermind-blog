@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/blog', 'PostsController@index')->name('blog');
 Route::get('/blog/create', 'PostsController@create');
+Route::get('/blog/tags/create', 'TagsController@create');
+Route::get('/blog/tags', 'TagsController@list')->name('tags.list');
+Route::post('/blog/tags', 'TagsController@store')->name('tags.store');
 Route::get('/blog/tags/{tag}', 'TagsController@index');
 Route::post('/blog', 'PostsController@store')->name('blog.store');
 Route::get('/blog/{post}', 'PostsController@show');
