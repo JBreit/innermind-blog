@@ -19,7 +19,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Posts $posts)
+    public function index(Post $post)
     {
         // dd($posts);
         // $posts = $posts->all();
@@ -38,8 +38,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all();
-
+        $tags = Tag::all('name', 'id');
+        //dd($tags);
         return view('posts.create', compact('tags'));
     }
 
@@ -51,12 +51,15 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate(request(),[
             'title' => 'required',
             'body' => 'required'
         ]);
 
-        auth()->user()->publish(new Post(request(['title', 'body'])));
+        $post = auth()->user()->publish(new Post(request(['title', 'body'])));
+        //dd($post);
+        $post->tags()->attach($request->input('tags'));
 
         session()->flash('message', 'Your post has been published.');
 
@@ -106,5 +109,10 @@ class PostsController extends Controller
     public function destroy($post)
     {
         //
+    }
+
+    public function tags(Post $post)
+    {
+        $tags = $post->tags;
     }
 }

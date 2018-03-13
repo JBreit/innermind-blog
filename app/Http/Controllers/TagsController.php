@@ -32,10 +32,6 @@ class TagsController extends Controller
             'name' => 'required|max:255'
         ]);
 
-        $tag = new Tag;
-        $tag->name = $request->name;
-        $tag->save();
-
         session()->flash('message', 'New Tag was successfully created.');
 
         return redirect()->route('tags.list');

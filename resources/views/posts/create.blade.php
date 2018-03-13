@@ -15,20 +15,20 @@
             <form method="POST" action="{{ route('blog.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Title:</label>
                     <input type="text" class="form-control" id="title" name="title" required />
                 </div>
                 <div class="form-group">
-                    <label for="tags">Tags</label>
-                    <select class="form-control" name="tags">
+                    <label for="body">Body:</label>
+                    <textarea class="form-control" id="body" name="body" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags:</label>
+                    <select id="tags" class="form-control" name="tags[]" multiple>
                         @foreach ($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="body">Body</label>
-                    <textarea class="form-control" id="body" name="body" required></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-outline-primary">Publish</button>

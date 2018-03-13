@@ -38,7 +38,7 @@
           <ol class="list-unstyled mb-0">
           @foreach ($tags as $tag )
             <li>
-              <a href="/posts/tags/{{ $tag }}">
+              <a href="/blog/tags/{{ $tag }}">
                 {{ $tag }}
               </a>
             </li>

@@ -18,7 +18,7 @@
                 <ul>
                     @foreach ($post->tags as $tag)
                         <li>
-                            <a href="/posts/tag/{{ $tag->name }}">{{ $tag->name }}</a>
+                            <a href="/blog/tags/{{ $tag->name }}">{{ $tag->name }}</a>
                         </li>
                     @endforeach
                 </ul>
