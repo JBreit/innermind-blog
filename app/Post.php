@@ -28,7 +28,12 @@ class Post extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'post_tag', 'tag_id', 'post_id');
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function getTagListAttribute()
+    {
+        return $this->tags->pluck('id')->all();
     }
 
     public function addComment($body)

@@ -39,7 +39,7 @@ class PostsController extends Controller
     public function create()
     {
         $tags = Tag::all('name', 'id');
-        //dd($tags);
+
         return view('posts.create', compact('tags'));
     }
 
@@ -58,8 +58,8 @@ class PostsController extends Controller
         ]);
 
         $post = auth()->user()->publish(new Post(request(['title', 'body'])));
-        //dd($post);
-        $post->tags()->attach($request->input('tags'));
+
+        $post->tags()->attach($request->input('tag_list'));
 
         session()->flash('message', 'Your post has been published.');
 
@@ -83,9 +83,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($post)
+    public function edit(Request $request, Post $post)
     {
-        //
+        $tags = $post->tags()->pluck('name', 'id')->all();
+
+        return view('posts.edit', compact('post', 'tags'));
     }
 
     /**
@@ -97,7 +99,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, $post)
     {
-        //
+        $post->update($request->all());
+
+        return redirect('blog');
     }
 
     /**
