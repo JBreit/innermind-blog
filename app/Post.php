@@ -6,6 +6,11 @@ use Carbon\Carbon;
 
 class Post extends Model
 {
+    /**
+     * A post has comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -52,10 +57,6 @@ class Post extends Model
         if (isset($filters['year'])) {
             $query->whereYear('created_at', $filters['year']);
         }
-
-        // if (isset($filters['recent'])) {
-        //     $query->where( 'created_at', '>', Carbon::now()->subDays(14));
-        // }
     }
 
     public static function archives()

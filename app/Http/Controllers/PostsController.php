@@ -51,15 +51,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate(request(),[
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-
-        $post = auth()->user()->publish(new Post(request(['title', 'body'])));
-
-        $post->tags()->attach($request->input('tag_list'));
+        $this->createPost($request);
 
         session()->flash('message', 'Your post has been published.');
 
@@ -101,6 +93,8 @@ class PostsController extends Controller
     {
         $post->update($request->all());
 
+        $this->syncTags($post, $request->input('tag_list'));
+
         return redirect('blog');
     }
 
@@ -118,5 +112,36 @@ class PostsController extends Controller
     public function tags(Post $post)
     {
         $tags = $post->tags;
+    }
+
+    /**
+     * Sync tag list in the database
+     *
+     * @param  Post   $post
+     * @param  array  $tags
+     */
+    private function syncTags(Post $post, array $tags)
+    {
+        $post->tags()->sync($tags);
+    }
+
+    /**
+     * Helper method to create post through abstraction
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Object $post
+     */
+    private function createPost(Request $request)
+    {
+        $this->validate(request(),[
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $post = auth()->user()->publish(new Post(request(['title', 'body'])));
+
+        $this->syncTags($post, $request->input('tag_list'));
+
+        return $post;
     }
 }

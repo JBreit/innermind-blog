@@ -41,3 +41,7 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+    @include('posts.partials.scripts')
+@endsection

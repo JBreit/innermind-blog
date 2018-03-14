@@ -10,6 +10,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+        <link href="{{ asset('css/select2.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -35,5 +36,6 @@
         <script src="{{ asset('js/manifest.js') }}"></script>
         <script src="{{ asset('js/vendor.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        @yield('scripts')
     </body>
 </html>

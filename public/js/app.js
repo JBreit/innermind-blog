@@ -42,7 +42,7 @@ var app = new Vue({
 
 
 window._ = __webpack_require__(5);
-window.Popper = __webpack_require__(2).default;
+window.Popper = __webpack_require__(3).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -51,7 +51,7 @@ window.Popper = __webpack_require__(2).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(3);
+  window.$ = window.jQuery = __webpack_require__(2);
 
   __webpack_require__(6);
 } catch (e) {}

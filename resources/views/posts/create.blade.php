@@ -16,11 +16,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="title">Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" required />
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Name your post" required />
                 </div>
                 <div class="form-group">
                     <label for="body">Body:</label>
-                    <textarea class="form-control" id="body" name="body" required></textarea>
+                    <textarea class="form-control" id="body" name="body" placeholder="Write a post" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tag_list">Tags:</label>
@@ -40,4 +40,8 @@
         @include('layouts.partials.sidebar')
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    @include('posts.partials.scripts')
 @endsection
